@@ -1,0 +1,14 @@
+pl\karpiuu\letsfindout\LetsFindOutConfiguration.class
+pl\karpiuu\letsfindout\LetsFindOutApplication.class
+pl\karpiuu\letsfindout\question\domain\model\Answer.class
+pl\karpiuu\letsfindout\category\service\CategoryService.class
+pl\karpiuu\letsfindout\admin\controller\AdminViewController.class
+pl\karpiuu\letsfindout\question\service\QuestionService.class
+pl\karpiuu\letsfindout\category\model\Category.class
+pl\karpiuu\letsfindout\question\controller\AnswerController.class
+pl\karpiuu\letsfindout\question\controller\QuestionViewController.class
+pl\karpiuu\letsfindout\question\domain\model\Question.class
+pl\karpiuu\letsfindout\question\controller\QuestionApiController.class
+pl\karpiuu\letsfindout\question\service\AnswerService.class
+pl\karpiuu\letsfindout\category\controller\CategoryApiController.class
+pl\karpiuu\letsfindout\category\controller\CategoryAdminViewController.class
