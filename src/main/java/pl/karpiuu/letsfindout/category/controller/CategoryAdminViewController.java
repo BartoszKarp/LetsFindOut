@@ -3,7 +3,7 @@ package pl.karpiuu.letsfindout.category.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.karpiuu.letsfindout.category.model.Category;
+import pl.karpiuu.letsfindout.category.domain.model.Category;
 import pl.karpiuu.letsfindout.category.service.CategoryService;
 
 import java.util.UUID;
@@ -37,6 +37,12 @@ public class CategoryAdminViewController {
         categoryService.updateCategory(id, category);
 
         return "redirect:/admin/categories";
+    }
+
+    @GetMapping("{id}/delete")
+    public String deleteView(@PathVariable UUID id){
+        categoryService.deleteCategory(id);
+        return "admin/category/edit";
     }
 
 }

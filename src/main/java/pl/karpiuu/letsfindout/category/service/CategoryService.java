@@ -1,7 +1,9 @@
 package pl.karpiuu.letsfindout.category.service;
 
 import org.springframework.stereotype.Service;
-import pl.karpiuu.letsfindout.category.model.Category;
+import org.springframework.transaction.annotation.Transactional;
+import pl.karpiuu.letsfindout.category.domain.model.Category;
+import pl.karpiuu.letsfindout.category.domain.repository.CategoryRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,28 +12,38 @@ import java.util.UUID;
 @Service
 public class CategoryService {
 
+    private final CategoryRepository categoryRepository;
+
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
+
+    @Transactional(readOnly = true)
     public List<Category> getCategories() {
-        return Arrays.asList(
-                new Category("Category 1"),
-                new Category("Category 2"),
-                new Category("Category 3")
-        );
+        return categoryRepository.findAll();
     }
-
+    @Transactional(readOnly = true)
     public Category getCategory(UUID id) {
-        return new Category("Category "+id);
+        return categoryRepository.getById(id);
     }
+    @Transactional
+    public Category createCategory(Category categoryRequest) {
+        Category category = new Category();
 
-    public Category createCategory(Category question) {
-        question.setId(UUID.randomUUID());
+        category.setName(category.getName());
 
-        return question;
+        return categoryRepository.save(category);
     }
+    @Transactional
+    public Category updateCategory(UUID id, Category categoryRequest) {
+        Category category = categoryRepository.getById(id);
 
-    public Category updateCategory(UUID id, Category question) {
-        return question;
+        category.setName(category.getName());
+
+        return categoryRepository.save(category);
     }
-
+    @Transactional
     public void deleteCategory(UUID id) {
+        categoryRepository.deleteById(id);
     }
 }
