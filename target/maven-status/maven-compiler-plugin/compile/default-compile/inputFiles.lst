@@ -1,7 +1,10 @@
+C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\category\domain\model\Category.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\category\controller\CategoryApiController.java
+C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\category\controller\CategoryViewController.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\question\service\QuestionService.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\question\domain\model\Question.java
-C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\category\model\Category.java
+C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\question\domain\repository\AnswerRepository.java
+C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\category\domain\repository\CategoryRepository.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\category\service\CategoryService.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\category\controller\CategoryAdminViewController.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\LetsFindOutConfiguration.java
@@ -10,5 +13,6 @@ C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\LetsFindOutApplication.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\admin\controller\AdminViewController.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\question\controller\AnswerController.java
+C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\question\domain\repository\QuestionRepository.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\question\controller\QuestionApiController.java
 C:\Users\barte\OneDrive\Desktop\Programowanie\StormIT\LetsFindOut\src\main\java\pl\karpiuu\letsfindout\question\service\AnswerService.java

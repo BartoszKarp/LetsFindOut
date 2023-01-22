@@ -1,9 +1,10 @@
 package pl.karpiuu.letsfindout.category.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Entity
@@ -13,6 +14,8 @@ public class Category {
     @Id
     private UUID id;
 
+    @NotBlank(message = "{letsfindout.validation.name.NotBlank.message}")
+    @Size(min = 3, max = 255)
     private String name;
 
     public Category() {

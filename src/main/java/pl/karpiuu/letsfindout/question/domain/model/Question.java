@@ -1,6 +1,6 @@
 package pl.karpiuu.letsfindout.question.domain.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import pl.karpiuu.letsfindout.category.domain.model.Category;
 
 import java.util.*;
