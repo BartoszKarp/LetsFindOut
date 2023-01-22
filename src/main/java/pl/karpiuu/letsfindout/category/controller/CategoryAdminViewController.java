@@ -2,6 +2,9 @@ package pl.karpiuu.letsfindout.category.controller;
 
 
 import javax.validation.Valid;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +14,10 @@ import pl.karpiuu.letsfindout.category.domain.model.Category;
 import pl.karpiuu.letsfindout.category.service.CategoryService;
 import pl.karpiuu.letsfindout.common.dto.Message;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/admin/categories")
@@ -24,8 +30,10 @@ public class CategoryAdminViewController {
     }
 
     @GetMapping
-    public String indexView(Model model){
-        model.addAttribute("categories", categoryService.getCategories());
+    public String indexView(Pageable pageable, Model model){
+        Page<Category> categoriesPage = categoryService.getCategories(pageable);
+        model.addAttribute("categoriesPage", categoriesPage);
+        paging(model, categoriesPage);
 
         return "admin/category/index";
     }
@@ -70,6 +78,16 @@ public class CategoryAdminViewController {
         ra.addFlashAttribute("message", Message.info("Category deleted"));
 
         return "redirect:/admin/categories";
+    }
+
+    public void paging(Model model, Page page){
+        int totalPages = page.getTotalPages();
+        if(totalPages > 0){
+            List<Integer> pageNumbers= IntStream.rangeClosed(1, totalPages)
+                    .boxed()
+                    .collect(Collectors.toList());
+            model.addAttribute("pageNumbers", pageNumbers);
+        }
     }
 
 }
