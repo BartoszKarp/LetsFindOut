@@ -4,13 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.karpiuu.letsfindout.LetsFindOutConfiguration;
+import pl.karpiuu.letsfindout.common.controller.LetsFindOutConfiguration;
 import pl.karpiuu.letsfindout.category.service.CategoryService;
-import pl.karpiuu.letsfindout.common.controller.ControllerUtils;
 import pl.karpiuu.letsfindout.common.controller.LetsFindOutCommonViewController;
 import pl.karpiuu.letsfindout.question.domain.model.Question;
 import pl.karpiuu.letsfindout.question.service.AnswerService;
@@ -78,7 +76,7 @@ public class QuestionViewController extends LetsFindOutCommonViewController {
 		return "question/index";
 	}
 	@GetMapping("unanswered")
-	public String hotUnanswered(
+	public String unansweredView(
 			@RequestParam(name = "page", defaultValue = "1") int page,
 			Model model
 	){

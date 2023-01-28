@@ -1,4 +1,4 @@
-package pl.karpiuu.letsfindout;
+package pl.karpiuu.letsfindout.common.controller;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
