@@ -1,6 +1,7 @@
 package pl.karpiuu.letsfindout.category.controller;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +23,7 @@ import static pl.karpiuu.letsfindout.common.controller.ControllerUtils.paging;
 
 @Controller
 @RequestMapping("/admin/categories")
+@Slf4j
 public class CategoryAdminViewController {
 
     private final CategoryService categoryService;
@@ -38,7 +40,7 @@ public class CategoryAdminViewController {
             @RequestParam(name = "page", required = false, defaultValue = "0") int page,
             @RequestParam(name = "size", required = false, defaultValue = "10") int size,
             Model model
-    ){
+    ) {
         Pageable pageable = PageRequest.of(page, size, Sort.Direction.fromString(direction), field);
 
         String reverseSort = null;
@@ -52,17 +54,19 @@ public class CategoryAdminViewController {
         model.addAttribute("categoriesPage", categoriesPage);
         model.addAttribute("search", search);
         model.addAttribute("reverseSort", reverseSort);
+
         paging(model, categoriesPage);
 
         return "admin/category/index";
     }
 
     @GetMapping("{id}")
-    public String editView(Model model, @PathVariable UUID id){
+    public String editView(Model model, @PathVariable UUID id) {
         model.addAttribute("category", categoryService.getCategory(id));
 
         return "admin/category/edit";
     }
+
     @PostMapping("{id}")
     public String edit(
             @PathVariable UUID id,
@@ -74,17 +78,18 @@ public class CategoryAdminViewController {
     ) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("category", category);
-            model.addAttribute("message", Message.error("Save error"));
+            model.addAttribute("message", Message.error("Błąd zapisu"));
             return "admin/category/edit";
         }
 
         try {
             categoryService.updateCategory(id, category);
-            ra.addFlashAttribute("message", Message.info("Category saved"));
+            ra.addFlashAttribute("message", Message.info("Kategoria zapisana"));
 
         } catch (Exception e) {
+            log.error("Error on category.edit", e);
             model.addAttribute("category", category);
-            model.addAttribute("message", Message.error("Unknown error"));
+            model.addAttribute("message", Message.error("Nieznany błąd zapisu"));
             return "admin/category/edit";
         }
 
@@ -92,9 +97,15 @@ public class CategoryAdminViewController {
     }
 
     @GetMapping("{id}/delete")
-    public String deleteView(@PathVariable UUID id, RedirectAttributes ra){
-        categoryService.deleteCategory(id);
-        ra.addFlashAttribute("message", Message.info("Category deleted"));
+    public String deleteView(@PathVariable UUID id, RedirectAttributes ra) {
+        try {
+            categoryService.deleteCategory(id);
+            ra.addFlashAttribute("message", Message.info("Kategoria usunięta"));
+        } catch (Exception e) {
+            log.error("Error on category.delete", e);
+            ra.addFlashAttribute("message", Message.error("Nieznany błąd podczas usuwania"));
+            return "redirect:/admin/categories";
+        }
 
         return "redirect:/admin/categories";
     }

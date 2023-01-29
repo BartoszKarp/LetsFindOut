@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.karpiuu.letsfindout.category.domain.model.Category;
 import pl.karpiuu.letsfindout.category.domain.repository.CategoryRepository;
+import pl.karpiuu.letsfindout.category.dto.CategoryWithStatisticsDto;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,9 +28,9 @@ public class CategoryService {
 
     @Transactional(readOnly = true)
     public Page<Category> getCategories(String search, Pageable pageable) {
-        if(search == null) {
+        if (search == null) {
             return categoryRepository.findAll(pageable);
-        }else{
+        } else {
             return categoryRepository.findByNameContainingIgnoreCase(search, pageable);
         }
     }
@@ -38,24 +39,33 @@ public class CategoryService {
     public Category getCategory(UUID id) {
         return categoryRepository.getById(id);
     }
+
     @Transactional
     public Category createCategory(Category categoryRequest) {
         Category category = new Category();
 
-        category.setName(category.getName());
+        category.setName(categoryRequest.getName());
 
         return categoryRepository.save(category);
     }
+
     @Transactional
     public Category updateCategory(UUID id, Category categoryRequest) {
         Category category = categoryRepository.getById(id);
 
-        category.setName(category.getName());
+        category.setName(categoryRequest.getName());
 
         return categoryRepository.save(category);
     }
+
     @Transactional
     public void deleteCategory(UUID id) {
         categoryRepository.deleteById(id);
     }
+
+    @Transactional(readOnly = true)
+    public List<CategoryWithStatisticsDto> findAllWithStatistics() {
+        return categoryRepository.findAllWithStatistics();
+    }
+
 }
