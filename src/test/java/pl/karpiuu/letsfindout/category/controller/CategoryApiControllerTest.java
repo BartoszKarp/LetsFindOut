@@ -11,8 +11,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import pl.karpiuu.letsfindout.category.domain.model.Category;
-import pl.karpiuu.letsfindout.category.service.CategoryService;
+import pl.karpiuu.letsfindout.domain.category.Category;
+import pl.karpiuu.letsfindout.domain.category.CategoryService;
 
 import java.util.List;
 
