@@ -17,89 +17,90 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class QuestionService {
 
-	private final QuestionRepository questionRepository;
+    private final QuestionRepository questionRepository;
 
-	private final QuestionMapper questionMapper;
+    private final QuestionMapper questionMapper;
 
-	@Transactional(readOnly = true)
-	public List<Question> getQuestions() {
-		return questionRepository.findAll();
-	}
+    @Transactional(readOnly = true)
+    public List<Question> getQuestions() {
+        return questionRepository.findAll();
+    }
 
-	@Transactional(readOnly = true)
-	public Question getQuestion(UUID id) {
-		return questionRepository.getById(id);
-	}
+    @Transactional(readOnly = true)
+    public Question getQuestion(UUID id) {
+        return questionRepository.getById(id);
+    }
 
-	@Transactional
-	public Question createQuestion(Question questionRequest) {
-		Question question = new Question();
+    @Transactional
+    public Question createQuestion(Question questionRequest) {
+        Question question = new Question();
 
-		question.setName(questionRequest.getName());
+        question.setName(questionRequest.getName());
 
-		return questionRepository.save(question);
-	}
+        return questionRepository.save(question);
+    }
 
-	@Transactional
-	public Question updateQuestion(UUID id, Question questionRequest) {
-		Question question = questionRepository.getById(id);
 
-		question.setName(questionRequest.getName());
+    @Transactional
+    public Question updateQuestion(UUID id, Question questionRequest) {
+        Question question = questionRepository.getById(id);
 
-		return questionRepository.save(question);
-	}
+        question.setName(questionRequest.getName());
 
-	@Transactional
-	public void deleteQuestion(UUID id) {
-		questionRepository.deleteById(id);
-	}
+        return questionRepository.save(question);
+    }
 
-	@Transactional(readOnly = true)
-	public List<Question> findAllByCategoryId(UUID id) {
-		return questionRepository.findAllByCategoryId(id, Pageable.unpaged());
-	}
+    @Transactional
+    public void deleteQuestion(UUID id) {
+        questionRepository.deleteById(id);
+    }
 
-	@Transactional(readOnly = true)
-	public Page<Question> findHot(Pageable pageable) {
-		return questionRepository.findHot(pageable);
-	}
+    @Transactional(readOnly = true)
+    public List<Question> findAllByCategoryId(UUID id) {
+        return questionRepository.findAllByCategoryId(id, Pageable.unpaged());
+    }
 
-	@Transactional(readOnly = true)
-	public Page<Question> findUnanswered(Pageable pageable) {
-		return questionRepository.findUnanswered(pageable);
-	}
+    @Transactional(readOnly = true)
+    public Page<Question> findHot(Pageable pageable) {
+        return questionRepository.findHot(pageable);
+    }
 
-	@Transactional(readOnly = true)
-	public Page<Question> findByQuery(String query, Pageable pageable) {
-		return questionRepository.findByQuery(query, pageable);
-	}
+    @Transactional(readOnly = true)
+    public Page<Question> findUnanswered(Pageable pageable) {
+        return questionRepository.findUnanswered(pageable);
+    }
 
-	@Transactional(readOnly = true)
-	public List<QuestionDto> findTop(int limit) {
-		return questionRepository.findAll(PageRequest.of(0, limit))
-				.get()
-				.map(questionMapper::map)
-				.collect(Collectors.toList());
-	}
+    @Transactional(readOnly = true)
+    public Page<Question> findByQuery(String query, Pageable pageable) {
+        return questionRepository.findByQuery(query, pageable);
+    }
 
-	@Transactional(readOnly = true)
-	public List<QuestionDto> findTop(UUID categoryId, int limit) {
-		return questionRepository.findAllByCategoryId(categoryId, PageRequest.of(0, limit))
-				.stream()
-				.map(questionMapper::map)
-				.collect(Collectors.toList());
-	}
+    @Transactional(readOnly = true)
+    public List<QuestionDto> findTop(int limit) {
+        return questionRepository.findAll(PageRequest.of(0, limit))
+                .get()
+                .map(questionMapper::map)
+                .collect(Collectors.toList());
+    }
 
-	@Transactional(readOnly = true)
-	public List<QuestionDto> findRandom(int limit) {
-		return questionRepository.findRandomQuestions(limit)
-				.stream()
-				.map(questionMapper::map)
-				.collect(Collectors.toList());
-	}
+    @Transactional(readOnly = true)
+    public List<QuestionDto> findTop(UUID categoryId, int limit) {
+        return questionRepository.findAllByCategoryId(categoryId, PageRequest.of(0, limit))
+                .stream()
+                .map(questionMapper::map)
+                .collect(Collectors.toList());
+    }
 
-	@Transactional(readOnly = true)
-	public StatisticsDto statistics() {
-		return questionRepository.statistics();
-	}
+    @Transactional(readOnly = true)
+    public List<QuestionDto> findRandom(int limit) {
+        return questionRepository.findRandomQuestions(limit)
+                .stream()
+                .map(questionMapper::map)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public StatisticsDto statistics() {
+        return questionRepository.statistics();
+    }
 }

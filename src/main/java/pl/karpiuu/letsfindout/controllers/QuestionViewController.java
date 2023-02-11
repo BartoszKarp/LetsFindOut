@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.karpiuu.letsfindout.domain.category.Category;
 import pl.karpiuu.letsfindout.domain.common.controller.LetsFindOutConfiguration;
 import pl.karpiuu.letsfindout.domain.category.CategoryService;
 import pl.karpiuu.letsfindout.domain.common.controller.LetsFindOutCommonViewController;
@@ -49,7 +50,9 @@ public class QuestionViewController extends LetsFindOutCommonViewController {
 
 	@GetMapping("add")
 	public String addView(Model model){
-		model.addAttribute("question", new Question());
+		Question addQuestion = new Question();
+		model.addAttribute("question", addQuestion);
+		model.addAttribute("category", new Category());
 
 		return "question/add";
 	}
