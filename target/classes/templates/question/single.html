@@ -13,16 +13,12 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Answers</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="answer : ${answers}">
                                     <td th:text="${answer.name}">Answer</td>
-                                    <td>x</td>
-                                    <td>x</td>
                                 </tr>
                             </tbody>
                         </table>
