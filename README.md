@@ -8,7 +8,6 @@
 * [Screenshots](#screenshots)
 * [Prerequisites](#prerequisites)
 * [Setup](#setup)
-* [Authors](#authors)
 
 ## General Information
 
@@ -72,9 +71,6 @@ The following tools are required to start the application:
       Password: password
 
 
-## Authors
-Created by StormIT community:
-- bartek.karp93@gmail.com
 
 
 <h1 align="center">👋 Hello, I'm Bartek 👋</h1>
