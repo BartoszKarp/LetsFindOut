@@ -36,12 +36,12 @@ The application is based on the REST architecture and the Minimum Viable Product
 - [Mockito](https://site.mockito.org/)
 
 ## Screenshots
-![LetsFindOut-1-IndexView](readme-img/LetsFindOut-1-IndexView.png)
-![2-HotQuestion](readme-img/LetsFindOut-2-HotQuestion.png)
-![3-QuestionAnswer](readme-img/LetsFindOut-3-QuestionAnswer.png)
-![4-AdminHome](readme-img/LetsFindOut-4-AdminHome.png)
-![5-AdminDelete](readme-img/LetsFindOut-5-AdminDelete.png)
-![6-AdminEdit](readme-img/LetsFindOut-6-AdminEdit.png)
+![LetsFindOut-1-IndexView](/readme-img/LetsFindOut-1-IndexView.png)
+![2-HotQuestion](/readme-img/LetsFindOut-2-HotQuestion.png)
+![3-QuestionAnswer](/readme-img/LetsFindOut-3-QuestionAnswer.png)
+![4-AdminHome](/readme-img/LetsFindOut-4-AdminHome.png)
+![5-AdminDelete](/readme-img/LetsFindOut-5-AdminDelete.png)
+![6-AdminEdit](/readme-img/LetsFindOut-6-AdminEdit.png)
 
 ## Prerequisites
 The following tools are required to start the application:
