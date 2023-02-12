@@ -75,3 +75,19 @@ The following tools are required to start the application:
 ## Authors
 Created by StormIT community:
 - bartek.karp93@gmail.com
+
+
+<h1 align="center">👋 Hello, I'm Bartek 👋</h1>
+<h3 align="center">An engineer and passionate self-taught Java Developer from Poland. I like solve problems than create them. Hence the desire to learn programming. At first it was just a hobby. Now I know I could do it professionally.</h3>
+
+- 🔥🔥🔥 Check my last project [LetsFindOut](https://github.com/BartoszKarp/LetsFindOut) 🔥🔥🔥
+
+- 🔭 I’m currently working on [TinyUrl](https://github.com/StormITpl/TinyUrl) and [EduQuiz](https://github.com/StormITpl/EduQuiz)
+
+- 💼 About me: **I am Master Engineer of Electronics and Telecommunication. Specialization: Technical Informatics and Telecommunications**
+
+- 📫 How to reach me **bartek.karp93@gmail.com**
+
+- 📄 Know about my experiences [bartoszkarp.github.io](https://bartoszkarp.github.io)
+
+- ⚡ Fun fact: **I trained Judo for 11 years 🥋**
