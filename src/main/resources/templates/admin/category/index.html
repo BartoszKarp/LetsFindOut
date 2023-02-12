@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="admin/template :: head(title = 'Lets Find Out – Admin')"></head>
+<head th:replace="admin/template :: head(title = '100 ideas – Admin')"></head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
@@ -16,7 +16,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Starter Page</h1>
+                        <h1 class="m-0">Categories</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,11 +37,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title" th:text="'Categories [count: '+${categoriesPage.totalElements}+${#strings.isEmpty(search) ? '' : ', search: '+search}+']'">Responsive Hover Table</h3>
+                                <h3 class="card-title" th:text="'Categories [count: '+${categoriesPage.totalElements}+${#strings.isEmpty(search) ? '' : ', search: '+search}+']'">Categories</h3>
 
-
-                                    <div class="card-tools">
-                                        <form>
+                                <div class="card-tools">
+                                    <form>
                                         <div class="input-group input-group-sm" style="width: 150px;">
                                             <input th:value="${search}" type="text" name="s" class="form-control float-right" placeholder="Search">
 
@@ -51,9 +50,8 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        </form>
-                                    </div>
-
+                                    </form>
+                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
@@ -62,16 +60,14 @@
                                     <tr>
                                         <th>#</th>
                                         <th><a th:class="'sort-'+${reverseSort}"
-                                               th:href="@{'/admin/categories'(s=${search}, field='name', direction=${reverseSort})}">Category</a></th>
-                                        <th>Questions</th>
-                                        <th>Functions</th>
+                                               th:href="@{'/admin/categories'(s=${search}, field='name', direction=${reverseSort})}">Name</a></th>
+                                        <th>#</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr th:each="category, it : ${categoriesPage.content}">
                                         <td th:text="${it.index}+1"></td>
                                         <td th:text="${category.name}"></td>
-                                        <td th:text="${category.questions.size()}"></td>
                                         <td>
                                             <a th:href="@{'/categories/'+${category.id}}" class="btn btn-primary btn-sm">
                                                 <i class="fas fa-folder"></i>View
@@ -84,9 +80,9 @@
                                             </a>
                                         </td>
                                     </tr>
-
                                     </tbody>
                                 </table>
+
                                 <div class="card-footer clearfix">
                                     <ul class="pagination pagination-sm m-0 float-right"
                                         th:if="${categoriesPage.totalPages > 0}">
@@ -97,6 +93,7 @@
                                         </li>
                                     </ul>
                                 </div>
+
                             </div>
                             <!-- /.card-body -->
                         </div>

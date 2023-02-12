@@ -35,12 +35,10 @@ public class IndexViewController extends LetsFindOutCommonViewController {
 	}
 
 	public List<QuestionDto> topQuestionsByCategory(UUID categoryId) {
-		List<QuestionDto> topQuestions = questionService.findTop(categoryId, 2);
-		return topQuestions;
+		return questionService.findTop(categoryId, 2);
 	}
 
 	public List<QuestionDto> randomQuestions() {
-		List<QuestionDto> randomQuestions = questionService.findRandom(2);
-		return randomQuestions;
+		return questionService.findRandom(2);
 	}
 }
