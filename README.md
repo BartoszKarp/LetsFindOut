@@ -36,7 +36,7 @@ The application is based on the REST architecture and the Minimum Viable Product
 - [Mockito](https://site.mockito.org/)
 
 ## Screenshots
-![1-IndexView](readme-img/LetsFindOut-1-IndexView.png)
+![LetsFindOut-1-IndexView](readme-img/LetsFindOut-1-IndexView.png)
 ![2-HotQuestion](readme-img/LetsFindOut-2-HotQuestion.png)
 ![3-QuestionAnswer](readme-img/LetsFindOut-3-QuestionAnswer.png)
 ![4-AdminHome](readme-img/LetsFindOut-4-AdminHome.png)
